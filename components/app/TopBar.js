@@ -7,7 +7,7 @@ import {
   Search, Bell, Sparkles, ChevronDown, X, ArrowRight,
   AlertTriangle, TrendingUp, Zap,
 } from 'lucide-react';
-import { alerts, demoUser } from '../../lib/mock-data';
+import { alerts } from '../../lib/mock-data';
 
 function NotificationPanel({ onClose }) {
   const recent = alerts.slice(0, 5);
@@ -74,10 +74,11 @@ function NotificationPanel({ onClose }) {
   );
 }
 
-export default function TopBar({ title, subtitle }) {
+export default function TopBar({ title, subtitle, user }) {
   const [searchFocused, setSearchFocused] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const unread = alerts.filter((a) => !a.read).length;
+  const initials = (user?.name || user?.email || 'U')[0].toUpperCase();
 
   return (
     <header
@@ -136,7 +137,7 @@ export default function TopBar({ title, subtitle }) {
 
       {/* Avatar */}
       <div className="w-8 h-8 rounded-full bg-gradient-brand flex items-center justify-center text-white text-xs font-bold cursor-pointer">
-        {demoUser.name[0]}
+        {initials}
       </div>
     </header>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,7 +10,7 @@ import {
   Settings, ChevronLeft, ChevronRight, Sparkles, TrendingUp,
   Users, LogOut, ChevronDown, FileText, Library, Activity,
 } from 'lucide-react';
-import { demoUser } from '../../lib/mock-data';
+import { createClient } from '../../lib/supabase/client';
 
 const NAV = [
   {
@@ -43,9 +44,21 @@ const NAV = [
   },
 ];
 
-export default function Sidebar({ collapsed, onCollapse }) {
+export default function Sidebar({ collapsed, onCollapse, user }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [userOpen, setUserOpen] = useState(false);
+
+  const signOut = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push('/login');
+    router.refresh();
+  };
+
+  const displayName = user?.name || user?.email?.split('@')[0] || 'User';
+  const displayEmail = user?.email || '';
+  const initials = displayName[0]?.toUpperCase() || 'U';
 
   const isActive = (href) => pathname === href || pathname.startsWith(href + '/');
 
@@ -163,7 +176,7 @@ export default function Sidebar({ collapsed, onCollapse }) {
           }`}
         >
           <div className="w-7 h-7 rounded-full bg-gradient-brand flex items-center justify-center text-white text-xs font-bold shrink-0">
-            {demoUser.name[0]}
+            {initials}
           </div>
           <AnimatePresence>
             {!collapsed && (
@@ -173,8 +186,8 @@ export default function Sidebar({ collapsed, onCollapse }) {
                 exit={{ opacity: 0 }}
                 className="flex-1 text-left overflow-hidden"
               >
-                <p className="text-xs font-medium text-ink-primary truncate">{demoUser.name}</p>
-                <p className="text-xs text-ink-muted truncate">{demoUser.email}</p>
+                <p className="text-xs font-medium text-ink-primary truncate">{displayName}</p>
+                <p className="text-xs text-ink-muted truncate">{displayEmail}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -202,7 +215,10 @@ export default function Sidebar({ collapsed, onCollapse }) {
                 <TrendingUp size={13} />
                 Billing
               </Link>
-              <button className="w-full flex items-center gap-2 px-3 py-2 text-xs text-danger hover:bg-bg-elevated transition-colors">
+              <button
+                onClick={signOut}
+                className="w-full flex items-center gap-2 px-3 py-2 text-xs text-danger hover:bg-bg-elevated transition-colors"
+              >
                 <LogOut size={13} />
                 Sign out
               </button>

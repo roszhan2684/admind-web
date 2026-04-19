@@ -1,17 +1,28 @@
-'use client';
+import { redirect } from 'next/navigation';
+import { createClient } from '../../lib/supabase/server';
+import AppShell from '../../components/app/AppShell';
 
-import { useState } from 'react';
-import Sidebar from '../../components/app/Sidebar';
+export default async function AppLayout({ children }) {
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
-export default function AppLayout({ children }) {
-  const [collapsed, setCollapsed] = useState(false);
+  if (!user) redirect('/login');
 
-  return (
-    <div className="flex h-screen overflow-hidden bg-bg-primary">
-      <Sidebar collapsed={collapsed} onCollapse={() => setCollapsed((v) => !v)} />
-      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
-        {children}
-      </div>
-    </div>
-  );
+  // Fetch profile
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const currentUser = {
+    id: user.id,
+    email: user.email,
+    name: profile?.full_name || user.email.split('@')[0],
+    company: profile?.company || '',
+    plan: profile?.plan || 'Starter',
+    avatar: profile?.avatar_url || null,
+  };
+
+  return <AppShell user={currentUser}>{children}</AppShell>;
 }
