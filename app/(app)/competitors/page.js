@@ -11,7 +11,7 @@ import {
 } from '../../../lib/mock-data';
 import TopBar from '../../../components/app/TopBar';
 
-const COLORS = ['#5B8CFF', '#22C7A9', '#7B61FF', '#F5B942', '#EF5F67'];
+const COLORS = ['#C084FC', '#F59E0B', '#60A5FA', '#F5B942', '#EF5F67'];
 
 /* ------------------------------------------------------------------ */
 /* Radar spider chart                                                   */
@@ -28,9 +28,9 @@ function CompetitorRadar({ competitor }) {
   return (
     <ResponsiveContainer width="100%" height={220}>
       <RadarChart data={data}>
-        <PolarGrid stroke="#26324A" />
-        <PolarAngleAxis dataKey="axis" tick={{ fill: '#74809A', fontSize: 11 }} />
-        <Radar dataKey="value" stroke="#5B8CFF" fill="#5B8CFF" fillOpacity={0.2} strokeWidth={2} />
+        <PolarGrid stroke="#2A2A3E" />
+        <PolarAngleAxis dataKey="axis" tick={{ fill: '#6B7280', fontSize: 11 }} />
+        <Radar dataKey="value" stroke="#C084FC" fill="#C084FC" fillOpacity={0.2} strokeWidth={2} />
       </RadarChart>
     </ResponsiveContainer>
   );
@@ -48,14 +48,14 @@ function NarrativeTimeline() {
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={narrativeTimeline}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#1A2438" vertical={false} />
-          <XAxis dataKey="month" tick={{ fill: '#74809A', fontSize: 11 }} axisLine={false} tickLine={false} />
-          <YAxis tick={{ fill: '#74809A', fontSize: 11 }} axisLine={false} tickLine={false} unit="%" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2C" vertical={false} />
+          <XAxis dataKey="month" tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} unit="%" />
           <Tooltip
-            contentStyle={{ background: '#182238', border: '1px solid #364560', borderRadius: 10, fontSize: 12 }}
-            labelStyle={{ color: '#A7B0C0' }}
+            contentStyle={{ background: '#20202E', border: '1px solid #3D3D5C', borderRadius: 10, fontSize: 12 }}
+            labelStyle={{ color: '#B3B8C5' }}
           />
-          <Legend wrapperStyle={{ fontSize: 11, color: '#74809A' }} />
+          <Legend wrapperStyle={{ fontSize: 11, color: '#6B7280' }} />
           {competitors.slice(0, 4).map((c, i) => (
             <Line
               key={c.name}

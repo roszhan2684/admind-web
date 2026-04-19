@@ -95,7 +95,7 @@ export default function AlertsPage() {
         {/* Summary row */}
         <div className="grid grid-cols-4 gap-4 mb-6">
           {[
-            { label: 'Unread', count: unreadCount, color: '#5B8CFF' },
+            { label: 'Unread', count: unreadCount, color: '#C084FC' },
             { label: 'Critical', count: alerts.filter((a) => a.severity === 'critical' && !dismissed.has(a.id)).length, color: '#EF5F67' },
             { label: 'High', count: alerts.filter((a) => a.severity === 'high' && !dismissed.has(a.id)).length, color: '#F5B942' },
             { label: 'Resolved', count: dismissed.size, color: '#22C55E' },

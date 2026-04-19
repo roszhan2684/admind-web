@@ -29,7 +29,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#0B1020',
+  themeColor: '#0F0F13',
   colorScheme: 'dark',
 };
 
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
           }
         `}</style>
       </head>
-      <body className="antialiased overflow-x-hidden" style={{ background: '#0B1020', color: '#F5F7FB' }}>
+      <body className="antialiased overflow-x-hidden" style={{ background: '#0F0F13', color: '#FAFAFA' }}>
         {children}
       </body>
     </html>

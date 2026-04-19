@@ -189,7 +189,7 @@ export default function RecommendationsPage() {
           {[
             { label: 'Critical', count: priorityCounts.critical, color: '#EF5F67', badge: 'badge-danger' },
             { label: 'High Priority', count: priorityCounts.high, color: '#F5B942', badge: 'badge-warning' },
-            { label: 'Medium', count: priorityCounts.medium, color: '#5B8CFF', badge: 'badge-primary' },
+            { label: 'Medium', count: priorityCounts.medium, color: '#C084FC', badge: 'badge-primary' },
           ].map((s) => (
             <div key={s.label} className="surface p-4 rounded-xl flex items-center gap-3">
               <div

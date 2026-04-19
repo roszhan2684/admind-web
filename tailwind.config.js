@@ -15,31 +15,31 @@ module.exports = {
       colors: {
         /* ── Backgrounds ── */
         bg: {
-          primary:  '#0B1020',
-          surface:  '#121A2B',
-          elevated: '#182238',
-          overlay:  '#1E2A40',
+          primary:  '#0F0F13',
+          surface:  '#191923',
+          elevated: '#20202E',
+          overlay:  '#26263A',
         },
         /* ── Brand ── */
-        primary:   { DEFAULT: '#5B8CFF', hover: '#4A7BEE', dim: 'rgba(91,140,255,0.12)' },
-        secondary: { DEFAULT: '#7B61FF', hover: '#6A50EE', dim: 'rgba(123,97,255,0.12)' },
-        accent:    { DEFAULT: '#22C7A9', hover: '#1AB99C', dim: 'rgba(34,199,169,0.12)' },
+        primary:   { DEFAULT: '#C084FC', hover: '#D8A4FF', dim: 'rgba(192,132,252,0.12)' },
+        secondary: { DEFAULT: '#60A5FA', hover: '#93C5FD', dim: 'rgba(96,165,250,0.12)'  },
+        accent:    { DEFAULT: '#F59E0B', hover: '#FCD34D', dim: 'rgba(245,158,11,0.12)'  },
         /* ── Semantic ── */
-        warning:  { DEFAULT: '#F5B942', dim: 'rgba(245,185,66,0.12)' },
-        danger:   { DEFAULT: '#EF5F67', dim: 'rgba(239,95,103,0.12)' },
-        success:  { DEFAULT: '#22C55E', dim: 'rgba(34,197,94,0.12)'  },
+        warning:  { DEFAULT: '#F59E0B', dim: 'rgba(245,158,11,0.12)'  },
+        danger:   { DEFAULT: '#F87171', dim: 'rgba(248,113,113,0.12)' },
+        success:  { DEFAULT: '#34D399', dim: 'rgba(52,211,153,0.12)'  },
         /* ── Text ── */
         ink: {
-          primary:   '#F5F7FB',
-          secondary: '#A7B0C0',
-          muted:     '#74809A',
-          disabled:  '#4A5568',
+          primary:   '#FAFAFA',
+          secondary: '#B3B8C5',
+          muted:     '#6B7280',
+          disabled:  '#4B5563',
         },
         /* ── Borders ── */
         border: {
-          DEFAULT: '#26324A',
-          subtle:  '#1E2A3C',
-          strong:  '#364560',
+          DEFAULT: '#2A2A3E',
+          subtle:  '#1E1E2C',
+          strong:  '#3D3D5C',
         },
       },
       borderRadius: {
@@ -54,16 +54,16 @@ module.exports = {
       boxShadow: {
         'card':    '0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3)',
         'elevated':'0 4px 24px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3)',
-        'glow-primary':  '0 0 24px rgba(91,140,255,0.25)',
-        'glow-accent':   '0 0 24px rgba(34,199,169,0.25)',
-        'glow-secondary':'0 0 24px rgba(123,97,255,0.2)',
+        'glow-primary':  '0 0 28px rgba(192,132,252,0.35)',
+        'glow-accent':   '0 0 28px rgba(245,158,11,0.30)',
+        'glow-secondary':'0 0 28px rgba(96,165,250,0.25)',
         'modal': '0 24px 64px rgba(0,0,0,0.7)',
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #5B8CFF 0%, #7B61FF 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #22C7A9 0%, #5B8CFF 100%)',
-        'gradient-dark': 'linear-gradient(180deg, #121A2B 0%, #0B1020 100%)',
-        'gradient-card': 'linear-gradient(135deg, rgba(91,140,255,0.06) 0%, rgba(123,97,255,0.04) 100%)',
+        'gradient-brand': 'linear-gradient(135deg, #C084FC 0%, #A855F7 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #F59E0B 0%, #C084FC 100%)',
+        'gradient-dark': 'linear-gradient(180deg, #191923 0%, #0F0F13 100%)',
+        'gradient-card': 'linear-gradient(135deg, rgba(192,132,252,0.07) 0%, rgba(96,165,250,0.04) 100%)',
         'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E\")",
       },
       animation: {
@@ -91,7 +91,7 @@ module.exports = {
         shimmer:   { from: { backgroundPosition: '-200% 0' }, to: { backgroundPosition: '200% 0' } },
         pulseSoft: { '0%,100%': { opacity: '0.6' }, '50%': { opacity: '1' } },
         float:     { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
-        glow:      { from: { boxShadow: '0 0 12px rgba(91,140,255,0.2)' }, to: { boxShadow: '0 0 28px rgba(91,140,255,0.5)' } },
+        glow:      { from: { boxShadow: '0 0 12px rgba(192,132,252,0.2)' }, to: { boxShadow: '0 0 32px rgba(192,132,252,0.6)' } },
         marquee:   { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
       },
       transitionTimingFunction: {

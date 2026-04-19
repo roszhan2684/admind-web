@@ -6,22 +6,22 @@
    DESIGN TOKENS
 ================================================================ */
 :root {
-  --bg-primary:   #0B1020;
-  --bg-surface:   #121A2B;
-  --bg-elevated:  #182238;
-  --bg-overlay:   #1E2A40;
-  --color-primary:   #5B8CFF;
-  --color-secondary: #7B61FF;
-  --color-accent:    #22C7A9;
-  --color-warning:   #F5B942;
-  --color-danger:    #EF5F67;
-  --color-success:   #22C55E;
-  --text-primary:   #F5F7FB;
-  --text-secondary: #A7B0C0;
-  --text-muted:     #74809A;
-  --border-default: #26324A;
-  --border-subtle:  #1A2438;
-  --border-strong:  #364560;
+  --bg-primary:   #0F0F13;
+  --bg-surface:   #191923;
+  --bg-elevated:  #20202E;
+  --bg-overlay:   #26263A;
+  --color-primary:   #C084FC;
+  --color-secondary: #60A5FA;
+  --color-accent:    #F59E0B;
+  --color-warning:   #F59E0B;
+  --color-danger:    #F87171;
+  --color-success:   #34D399;
+  --text-primary:   #FAFAFA;
+  --text-secondary: #B3B8C5;
+  --text-muted:     #6B7280;
+  --border-default: #2A2A3E;
+  --border-subtle:  #1E1E2C;
+  --border-strong:  #3D3D5C;
   --sidebar-width: 240px;
   --topbar-height: 60px;
   --font-display: 'Sora', system-ui, sans-serif;
@@ -58,9 +58,9 @@ body {
 ================================================================ */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #26324A; border-radius: 100px; }
-::-webkit-scrollbar-thumb:hover { background: #364560; }
-* { scrollbar-width: thin; scrollbar-color: #26324A transparent; }
+::-webkit-scrollbar-thumb { background: #2A2A3E; border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: #3D3D5C; }
+* { scrollbar-width: thin; scrollbar-color: #2A2A3E transparent; }
 
 /* ================================================================
    TYPOGRAPHY
@@ -94,19 +94,19 @@ body {
    GRADIENT TEXT
 ================================================================ */
 .gradient-text {
-  background: linear-gradient(135deg, #5B8CFF 0%, #7B61FF 55%, #22C7A9 100%);
+  background: linear-gradient(135deg, #C084FC 0%, #A855F7 45%, #60A5FA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gradient-text-sm {
-  background: linear-gradient(135deg, #5B8CFF 0%, #A78BFA 100%);
+  background: linear-gradient(135deg, #C084FC 0%, #E879F9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gradient-text-teal {
-  background: linear-gradient(135deg, #22C7A9 0%, #5B8CFF 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #C084FC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -126,23 +126,23 @@ body {
   border-radius: var(--radius-lg);
 }
 .glass {
-  background: rgba(18, 26, 43, 0.8);
+  background: rgba(25, 25, 35, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(38, 50, 74, 0.7);
+  border: 1px solid rgba(42, 42, 62, 0.7);
 }
 .glass-strong {
-  background: rgba(11, 16, 32, 0.88);
+  background: rgba(15, 15, 19, 0.92);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(38, 50, 74, 0.85);
+  border: 1px solid rgba(42, 42, 62, 0.85);
 }
 
 /* ================================================================
    BUTTONS
 ================================================================ */
 .btn-primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #C084FC 0%, #A855F7 100%);
   color: #fff;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -158,9 +158,9 @@ body {
   font-family: var(--font-sans);
 }
 .btn-primary:hover {
-  background: #4A7BEE;
+  background: linear-gradient(135deg, #D8A4FF 0%, #C084FC 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(91,140,255,0.4);
+  box-shadow: 0 8px 24px rgba(192,132,252,0.4);
 }
 .btn-primary:active { transform: translateY(0); box-shadow: none; }
 
@@ -183,7 +183,7 @@ body {
 .btn-secondary:hover {
   background: var(--bg-elevated);
   border-color: var(--color-primary);
-  color: #5B8CFF;
+  color: #C084FC;
 }
 .btn-ghost {
   background: transparent;
@@ -219,13 +219,13 @@ body {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
-.badge-primary   { background: rgba(91,140,255,0.14);  color: #7aaeff;  border: 1px solid rgba(91,140,255,0.22);  }
-.badge-success   { background: rgba(34,197,94,0.12);   color: #4ade80;  border: 1px solid rgba(34,197,94,0.22);   }
-.badge-warning   { background: rgba(245,185,66,0.12);  color: #fbbf24;  border: 1px solid rgba(245,185,66,0.22);  }
-.badge-danger    { background: rgba(239,95,103,0.12);  color: #f87171;  border: 1px solid rgba(239,95,103,0.22);  }
-.badge-accent    { background: rgba(34,199,169,0.12);  color: #34d399;  border: 1px solid rgba(34,199,169,0.22);  }
-.badge-muted     { background: rgba(116,128,154,0.1);  color: #74809A;  border: 1px solid rgba(116,128,154,0.18); }
-.badge-secondary { background: rgba(123,97,255,0.12);  color: #a78bfa;  border: 1px solid rgba(123,97,255,0.22);  }
+.badge-primary   { background: rgba(192,132,252,0.14); color: #D8A4FF; border: 1px solid rgba(192,132,252,0.28); }
+.badge-success   { background: rgba(52,211,153,0.12);  color: #6EE7B7; border: 1px solid rgba(52,211,153,0.25);  }
+.badge-warning   { background: rgba(245,158,11,0.14);  color: #FCD34D; border: 1px solid rgba(245,158,11,0.28);  }
+.badge-danger    { background: rgba(248,113,113,0.12); color: #FCA5A5; border: 1px solid rgba(248,113,113,0.25); }
+.badge-accent    { background: rgba(245,158,11,0.12);  color: #FCD34D; border: 1px solid rgba(245,158,11,0.25);  }
+.badge-muted     { background: rgba(107,114,128,0.12); color: #9CA3AF; border: 1px solid rgba(107,114,128,0.22); }
+.badge-secondary { background: rgba(96,165,250,0.12);  color: #93C5FD; border: 1px solid rgba(96,165,250,0.25);  }
 
 /* ================================================================
    SECTION LABEL (marketing)
@@ -236,9 +236,9 @@ body {
   gap: 0.5rem;
   padding: 0.375rem 0.875rem;
   border-radius: 100px;
-  border: 1px solid rgba(91,140,255,0.25);
-  background: rgba(91,140,255,0.08);
-  color: #5B8CFF;
+  border: 1px solid rgba(192,132,252,0.28);
+  background: rgba(192,132,252,0.08);
+  color: #C084FC;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -249,7 +249,7 @@ body {
    SKELETON
 ================================================================ */
 .skeleton {
-  background: linear-gradient(90deg, var(--bg-elevated) 25%, rgba(38,50,74,0.6) 50%, var(--bg-elevated) 75%);
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, rgba(61,61,92,0.5) 50%, var(--bg-elevated) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.8s infinite linear;
   border-radius: var(--radius-md);
@@ -277,7 +277,7 @@ body {
 .input::placeholder { color: var(--text-muted); }
 .input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(91,140,255,0.12);
+  box-shadow: 0 0 0 3px rgba(192,132,252,0.15);
 }
 
 /* ================================================================
@@ -300,9 +300,9 @@ body {
 }
 .sidebar-item:hover { background: var(--bg-elevated); color: var(--text-secondary); }
 .sidebar-item.active {
-  background: rgba(91,140,255,0.1);
-  color: #7aaeff;
-  border-color: rgba(91,140,255,0.16);
+  background: rgba(192,132,252,0.12);
+  color: #D8A4FF;
+  border-color: rgba(192,132,252,0.22);
 }
 
 .sidebar-section {
@@ -344,19 +344,19 @@ body {
    AI CARD
 ================================================================ */
 .ai-card {
-  background: linear-gradient(135deg, rgba(91,140,255,0.07) 0%, rgba(123,97,255,0.04) 100%);
-  border: 1px solid rgba(91,140,255,0.16);
+  background: linear-gradient(135deg, rgba(192,132,252,0.08) 0%, rgba(96,165,250,0.04) 100%);
+  border: 1px solid rgba(192,132,252,0.18);
   border-radius: var(--radius-lg);
 }
 .ai-orb {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #5B8CFF, #7B61FF);
+  background: linear-gradient(135deg, #C084FC, #A855F7);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(91,140,255,0.3);
+  box-shadow: 0 0 20px rgba(192,132,252,0.35);
   flex-shrink: 0;
 }
 
@@ -390,8 +390,8 @@ body {
 ================================================================ */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(38,50,74,0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(38,50,74,0.3) 1px, transparent 1px);
+    linear-gradient(rgba(61,61,92,0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,61,92,0.25) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 

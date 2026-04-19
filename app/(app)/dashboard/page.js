@@ -248,9 +248,9 @@ export default function DashboardPage() {
               </div>
               <div className="flex gap-2 text-xs">
                 {[
-                  { key: 'roas', color: '#5B8CFF' },
-                  { key: 'ctr', color: '#22C7A9' },
-                  { key: 'score', color: '#7B61FF' },
+                  { key: 'roas', color: '#C084FC' },
+                  { key: 'ctr', color: '#F59E0B' },
+                  { key: 'score', color: '#60A5FA' },
                 ].map((l) => (
                   <div key={l.key} className="flex items-center gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full" style={{ background: l.color }} />
@@ -263,25 +263,25 @@ export default function DashboardPage() {
               <AreaChart data={performanceSeries} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="gRoas" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#5B8CFF" stopOpacity={0.3} />
-                    <stop offset="100%" stopColor="#5B8CFF" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#C084FC" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="#C084FC" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gCtr" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#22C7A9" stopOpacity={0.25} />
-                    <stop offset="100%" stopColor="#22C7A9" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#F59E0B" stopOpacity={0.25} />
+                    <stop offset="100%" stopColor="#F59E0B" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gScore" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#7B61FF" stopOpacity={0.2} />
-                    <stop offset="100%" stopColor="#7B61FF" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#60A5FA" stopOpacity={0.2} />
+                    <stop offset="100%" stopColor="#60A5FA" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1A2438" vertical={false} />
-                <XAxis dataKey="date" tick={{ fill: '#74809A', fontSize: 11 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: '#74809A', fontSize: 11 }} axisLine={false} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2C" vertical={false} />
+                <XAxis dataKey="date" tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} />
                 <Tooltip content={<ChartTooltip />} />
-                <Area dataKey="roas" stroke="#5B8CFF" strokeWidth={2} fill="url(#gRoas)" dot={false} />
-                <Area dataKey="ctr" stroke="#22C7A9" strokeWidth={2} fill="url(#gCtr)" dot={false} />
-                <Area dataKey="score" stroke="#7B61FF" strokeWidth={2} fill="url(#gScore)" dot={false} />
+                <Area dataKey="roas" stroke="#C084FC" strokeWidth={2} fill="url(#gRoas)" dot={false} />
+                <Area dataKey="ctr" stroke="#F59E0B" strokeWidth={2} fill="url(#gCtr)" dot={false} />
+                <Area dataKey="score" stroke="#60A5FA" strokeWidth={2} fill="url(#gScore)" dot={false} />
               </AreaChart>
             </ResponsiveContainer>
           </div>

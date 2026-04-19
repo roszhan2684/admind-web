@@ -135,9 +135,9 @@ function Navbar() {
 /* ------------------------------------------------------------------ */
 function AppPreview() {
   const metrics = [
-    { label: 'Creative Score', value: '8.4', delta: '+12%', color: '#5B8CFF' },
-    { label: 'CTR', value: '3.2%', delta: '+0.8%', color: '#22C7A9' },
-    { label: 'ROAS', value: '4.1×', delta: '+0.6×', color: '#7B61FF' },
+    { label: 'Creative Score', value: '8.4', delta: '+12%', color: '#C084FC' },
+    { label: 'CTR', value: '3.2%', delta: '+0.8%', color: '#F59E0B' },
+    { label: 'ROAS', value: '4.1×', delta: '+0.6×', color: '#60A5FA' },
     { label: 'Fatigue Risk', value: '18%', delta: '-9%', color: '#F5B942' },
   ];
   const actions = [
@@ -228,7 +228,7 @@ function AppPreview() {
                 className="flex-1 rounded-t-sm"
                 style={{
                   height: `${h}%`,
-                  background: `rgba(91,140,255,${0.3 + i * 0.05})`,
+                  background: `rgba(192,132,252,${0.3 + i * 0.05})`,
                 }}
               />
             ))}
@@ -440,7 +440,7 @@ function FeaturesSection() {
   const features = [
     {
       icon: Brain,
-      color: '#5B8CFF',
+      color: '#C084FC',
       tag: 'Creative Intelligence',
       title: 'Know exactly why your ads win or lose',
       desc: 'AdMind scores every creative on emotion, composition, fatigue, and message clarity. No more guessing — get a number you can act on.',
@@ -448,7 +448,7 @@ function FeaturesSection() {
     },
     {
       icon: Eye,
-      color: '#22C7A9',
+      color: '#F59E0B',
       tag: 'Competitor Intelligence',
       title: 'Track rivals before their ads land',
       desc: 'Monitor competitor creative strategy in real time. See angle shifts, budget signals, and narrative plays before they dominate your category.',
@@ -456,7 +456,7 @@ function FeaturesSection() {
     },
     {
       icon: Zap,
-      color: '#7B61FF',
+      color: '#60A5FA',
       tag: 'AI Decision Engine',
       title: 'AI tells you exactly what to do next',
       desc: 'AdMind\'s Decision Engine synthesizes all signals into a prioritized action queue. No more meetings to decide what to test.',
