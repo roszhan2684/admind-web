@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain, LayoutDashboard, ImagePlay, Eye, Zap, Bell,
-  Settings, ChevronLeft, ChevronRight, HelpCircle,
-  Sparkles, TrendingUp, Users, LogOut, ChevronDown,
+  Settings, ChevronLeft, ChevronRight, Sparkles, TrendingUp,
+  Users, LogOut, ChevronDown, FileText, Library, Activity,
 } from 'lucide-react';
 import { demoUser } from '../../lib/mock-data';
 
@@ -15,10 +15,18 @@ const NAV = [
   {
     section: 'Core',
     items: [
-      { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-      { href: '/creative-library', icon: ImagePlay, label: 'Creative Library' },
-      { href: '/competitors', icon: Eye, label: 'Competitors' },
-      { href: '/recommendations', icon: Zap, label: 'Recommendations', badge: '4' },
+      { href: '/dashboard',        icon: LayoutDashboard, label: 'Dashboard' },
+      { href: '/creative-library', icon: ImagePlay,       label: 'Creative Library' },
+      { href: '/competitors',      icon: Eye,             label: 'Competitors' },
+      { href: '/recommendations',  icon: Zap,             label: 'Recommendations', badge: '4' },
+    ],
+  },
+  {
+    section: 'AI Tools',
+    items: [
+      { href: '/brief-generator',  icon: FileText,   label: 'Brief Generator', badge: 'new', badgeType: 'accent' },
+      { href: '/ad-library',       icon: Library,    label: 'Ad Library',      badge: 'new', badgeType: 'accent' },
+      { href: '/fatigue',          icon: Activity,   label: 'Fatigue Monitor' },
     ],
   },
   {
@@ -131,7 +139,9 @@ export default function Sidebar({ collapsed, onCollapse }) {
                   {!collapsed && item.badge && (
                     <span
                       className={`badge text-xs px-1.5 py-0.5 ${
-                        item.badgeType === 'danger' ? 'badge-danger' : 'badge-primary'
+                        item.badgeType === 'danger'  ? 'badge-danger'  :
+                        item.badgeType === 'accent'  ? 'badge-warning' :
+                        'badge-primary'
                       }`}
                     >
                       {item.badge}
