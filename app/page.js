@@ -352,6 +352,125 @@ function Hero() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Product Video Section                                                */
+/* ------------------------------------------------------------------ */
+function ProductVideo() {
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const videoRef = useRef(null);
+
+  const toggle = () => {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying((v) => !v);
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setMuted((v) => !v);
+  };
+
+  return (
+    <section id="product-video" className="py-24 bg-bg-primary">
+      <div className="max-w-5xl mx-auto px-6">
+        <FadeUp className="text-center mb-12">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide uppercase mb-5">
+            <Play size={11} />
+            Product Walkthrough
+          </span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-primary tracking-tight mb-4">
+            See AdMind in <span className="gradient-text">60 seconds</span>
+          </h2>
+          <p className="text-lg text-ink-muted max-w-xl mx-auto">
+            Watch how AdMind turns raw ad data into clear actions — from creative scoring to competitor intelligence.
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.15}>
+          <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-2xl bg-bg-surface group">
+            {/* Video element */}
+            <video
+              ref={videoRef}
+              src="/admind-explainer.mp4"
+              className="w-full aspect-video object-cover"
+              playsInline
+              onEnded={() => setPlaying(false)}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+            />
+
+            {/* Overlay — shown when paused */}
+            {!playing && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-primary/70 backdrop-blur-sm">
+                <motion.button
+                  onClick={toggle}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-700 flex items-center justify-center shadow-glow-primary mb-4"
+                >
+                  <Play size={30} className="text-white ml-1" fill="white" />
+                </motion.button>
+                <p className="text-sm text-ink-muted">1 min 21 sec · AI narration</p>
+              </div>
+            )}
+
+            {/* Controls bar */}
+            <div className="absolute bottom-0 inset-x-0 flex items-center justify-between px-5 py-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <button
+                onClick={toggle}
+                className="flex items-center gap-2 text-white text-sm font-medium"
+              >
+                {playing ? (
+                  <span className="w-6 h-6 flex items-center justify-center">
+                    <span className="w-1.5 h-4 bg-white rounded-sm inline-block mr-0.5" />
+                    <span className="w-1.5 h-4 bg-white rounded-sm inline-block" />
+                  </span>
+                ) : (
+                  <Play size={16} fill="white" className="text-white" />
+                )}
+                {playing ? 'Pause' : 'Play'}
+              </button>
+              <button
+                onClick={toggleMute}
+                className="text-white/70 hover:text-white text-xs font-medium transition-colors"
+              >
+                {muted ? '🔇 Unmute' : '🔊 Mute'}
+              </button>
+            </div>
+          </div>
+        </FadeUp>
+
+        {/* Feature chips below video */}
+        <FadeUp delay={0.25}>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {[
+              { emoji: '📊', label: 'Real-time dashboard' },
+              { emoji: '🤖', label: 'AI brief generator' },
+              { emoji: '👁️', label: 'Competitor monitor' },
+              { emoji: '📉', label: 'Fatigue detection' },
+              { emoji: '🎨', label: 'Creative scoring' },
+              { emoji: '⚡', label: 'Smart alerts' },
+            ].map((chip) => (
+              <span
+                key={chip.label}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-bg-elevated border border-border-default text-xs text-ink-secondary font-medium"
+              >
+                {chip.emoji} {chip.label}
+              </span>
+            ))}
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /* Social proof strip                                                   */
 /* ------------------------------------------------------------------ */
 function SocialProof() {
@@ -998,6 +1117,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-bg-primary">
       <Navbar />
       <Hero />
+      <ProductVideo />
       <SocialProof />
       <ProblemSection />
       <FeaturesSection />
