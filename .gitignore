@@ -1,6 +1,27 @@
+# Next.js
 .next/
+out/
+
+# Dependencies
 node_modules/
+
+# Environment files
+.env
 .env.local
 .env*.local
-out/
+
+# Vercel
+.vercel
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Tests
+test-results/
+playwright-report/
+
+# Video generation scripts (build artifacts, not source)
+capture_slides.js
+capture_slides2.js
+capture_v3.js
