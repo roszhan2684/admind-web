@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AdMind login code</title>
+</head>
+<body style="margin:0;padding:0;background:#0F0F13;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0F0F13;padding:48px 20px;">
+    <tr>
+      <td align="center">
+        <table width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;">
+
+          <!-- Logo -->
+          <tr>
+            <td align="center" style="padding-bottom:32px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background:linear-gradient(135deg,#C084FC,#7C3AED);border-radius:12px;width:44px;height:44px;text-align:center;vertical-align:middle;font-size:22px;">
+                    🧠
+                  </td>
+                  <td style="padding-left:10px;font-size:20px;font-weight:800;color:#FAFAFA;letter-spacing:-0.5px;vertical-align:middle;">
+                    AdMind
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Card -->
+          <tr>
+            <td style="background:#191923;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:40px 44px;">
+
+              <!-- Heading -->
+              <p style="margin:0 0 8px;font-size:24px;font-weight:800;color:#FAFAFA;letter-spacing:-0.5px;">
+                Your login code
+              </p>
+              <p style="margin:0 0 32px;font-size:15px;color:rgba(250,250,250,0.55);line-height:1.6;">
+                Enter this code in AdMind to sign in. It expires in <strong style="color:rgba(250,250,250,0.8);">10 minutes</strong>.
+              </p>
+
+              <!-- OTP Code -->
+              <div style="background:rgba(192,132,252,0.08);border:1px solid rgba(192,132,252,0.28);border-radius:14px;padding:24px;text-align:center;margin-bottom:32px;">
+                <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C084FC;">
+                  VERIFICATION CODE
+                </p>
+                <p style="margin:0;font-size:42px;font-weight:900;letter-spacing:12px;color:#FAFAFA;font-variant-numeric:tabular-nums;">
+                  {{ .Token }}
+                </p>
+              </div>
+
+              <!-- Instructions -->
+              <p style="margin:0 0 24px;font-size:14px;color:rgba(250,250,250,0.5);line-height:1.65;">
+                Open AdMind and enter this code on the verification screen. If you didn't request this, you can safely ignore this email — no account has been created.
+              </p>
+
+              <!-- Divider -->
+              <div style="border-top:1px solid rgba(255,255,255,0.07);margin:24px 0;"></div>
+
+              <!-- Security note -->
+              <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="vertical-align:top;padding-right:12px;width:20px;">
+                    <span style="font-size:16px;">🔒</span>
+                  </td>
+                  <td>
+                    <p style="margin:0;font-size:12px;color:rgba(250,250,250,0.35);line-height:1.6;">
+                      AdMind will never ask for your password. This one-time code is the only credential you need. If you're unsure, go directly to <a href="https://admind-web.vercel.app" style="color:#C084FC;text-decoration:none;">admind-web.vercel.app</a>.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="padding-top:28px;">
+              <p style="margin:0;font-size:12px;color:rgba(250,250,250,0.25);line-height:1.8;">
+                Sent to {{ .Email }} · AdMind Inc.<br>
+                <a href="https://admind-web.vercel.app" style="color:rgba(192,132,252,0.6);text-decoration:none;">admind-web.vercel.app</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
