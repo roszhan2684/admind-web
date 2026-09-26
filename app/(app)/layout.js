@@ -1,8 +1,23 @@
 import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 import { createClient } from '../../lib/supabase/server';
+import { isDemoRequest, demoAuthUser, demoProfile } from '../../lib/demo';
 import AppShell from '../../components/app/AppShell';
 
 export default async function AppLayout({ children }) {
+  if (isDemoRequest(cookies())) {
+    const demoUser = {
+      id: demoAuthUser.id,
+      email: demoAuthUser.email,
+      name: demoProfile.full_name,
+      company: demoProfile.company,
+      plan: demoProfile.plan,
+      avatar: null,
+      demo: true,
+    };
+    return <AppShell user={demoUser}>{children}</AppShell>;
+  }
+
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
 

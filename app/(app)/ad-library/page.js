@@ -18,84 +18,84 @@ const AD_LIBRARY = [
     angle: 'Lifestyle / Aspirational', score: 91, estCtr: '4.8%', estRoas: '5.2×',
     hook: '"Train like you mean it." — Opens on athlete mid-rep, zero intro.',
     why: 'No brand reveal until 4s. Pure emotion first. Strong UGC feel despite high production.',
-    emoji: '🏋️', tags: ['UGC style', 'Athlete', 'No logo intro'],
+    emoji: '🏋️', image: '/ad-library/ad-1.jpg', tags: ['UGC style', 'Athlete', 'No logo intro'],
   },
   {
     id: 'ad-2', brand: 'Notion', industry: 'SaaS', platform: 'LinkedIn', format: 'Static',
     angle: 'Educational', score: 84, estCtr: '0.9%', estRoas: '3.8×',
     hook: `"Stop switching apps. Your team's brain, in one place."`,
     why: 'Clean headline that names the pain exactly. No jargon. Single visual showing the product solving the problem.',
-    emoji: '📝', tags: ['B2B', 'Pain-led', 'Clean design'],
+    emoji: '📝', image: '/ad-library/ad-2.jpg', tags: ['B2B', 'Pain-led', 'Clean design'],
   },
   {
     id: 'ad-3', brand: 'NovaBrand', industry: 'DTC / E-commerce', platform: 'TikTok', format: 'Video',
     angle: 'Urgency / Scarcity', score: 88, estCtr: '3.9%', estRoas: '4.6×',
     hook: '"Only 47 left in stock — here\'s why they\'re selling out."',
     why: 'Combines scarcity with social proof. TikTok-native editing rhythm. Creator-style face-to-camera with product.',
-    emoji: '⚡', tags: ['Scarcity', 'Face-to-camera', 'TikTok-native'],
+    emoji: '⚡', image: '/ad-library/ad-3.jpg', tags: ['Scarcity', 'Face-to-camera', 'TikTok-native'],
   },
   {
     id: 'ad-4', brand: 'Headspace', industry: 'Health & Wellness', platform: 'Meta', format: 'Video',
     angle: 'Emotional / Story', score: 87, estCtr: '3.1%', estRoas: '4.1×',
     hook: '"I used to wake up dreading the day. Then I tried 5 minutes."',
     why: 'First-person hook creates instant identification. Soft audio design signals calm. Perfect brand-tone match.',
-    emoji: '🧠', tags: ['Emotional', 'First-person', 'Story arc'],
+    emoji: '🧠', image: '/ad-library/ad-4.jpg', tags: ['Emotional', 'First-person', 'Story arc'],
   },
   {
     id: 'ad-5', brand: 'Stripe', industry: 'Finance / Fintech', platform: 'Google Display', format: 'Static',
     angle: 'Direct / Product-first', score: 79, estCtr: '0.6%', estRoas: '6.8×',
     hook: '"Payments infrastructure for the internet."',
     why: 'Pure positioning. No fluff. Trusts brand awareness. Minimalist visual = premium signal in a cluttered space.',
-    emoji: '💳', tags: ['Minimalist', 'B2B', 'Positioning'],
+    emoji: '💳', image: '/ad-library/ad-5.jpg', tags: ['Minimalist', 'B2B', 'Positioning'],
   },
   {
     id: 'ad-6', brand: 'Magic Spoon', industry: 'Food & Beverage', platform: 'Meta', format: 'Carousel',
     angle: 'Humorous', score: 82, estCtr: '3.6%', estRoas: '3.9×',
     hook: '"Cereal for adults who peaked in 4th grade." — Slide 1.',
     why: 'Self-aware humour immediately filters in ideal customer. Carousel reveals nutrition facts with punchlines.',
-    emoji: '🥣', tags: ['Humorous', 'Carousel', 'Self-aware'],
+    emoji: '🥣', image: '/ad-library/ad-6.jpg', tags: ['Humorous', 'Carousel', 'Self-aware'],
   },
   {
     id: 'ad-7', brand: 'Loom', industry: 'SaaS', platform: 'YouTube', format: 'Video',
     angle: 'Educational', score: 86, estCtr: '2.2%', estRoas: '5.4×',
     hook: '"Stop writing emails. Do this instead." — Screen recording starts immediately.',
     why: 'Pattern interrupt + immediate demo. No talking head. Shows, doesn\'t tell. Clear CTA at 25s.',
-    emoji: '🎬', tags: ['Demo-first', 'YouTube', 'Screen recording'],
+    emoji: '🎬', image: '/ad-library/ad-7.jpg', tags: ['Demo-first', 'YouTube', 'Screen recording'],
   },
   {
     id: 'ad-8', brand: 'Allbirds', industry: 'Fashion', platform: 'Instagram', format: 'Static',
     angle: 'Aspirational / Lifestyle',  score: 77, estCtr: '2.8%', estRoas: '3.4×',
     hook: '"Made from trees. Made for humans."',
     why: 'Eco-credentials lead without preaching. Lifestyle photo — actual humans, not models. Earthy palette matches brand values.',
-    emoji: '🌿', tags: ['Eco', 'Lifestyle', 'Clean copy'],
+    emoji: '🌿', image: '/ad-library/ad-8.jpg', tags: ['Eco', 'Lifestyle', 'Clean copy'],
   },
   {
     id: 'ad-9', brand: 'Duolingo', industry: 'Education', platform: 'TikTok', format: 'Video',
     angle: 'Humorous', score: 93, estCtr: '5.2%', estRoas: '—',
     hook: 'Duo the owl dramatically chasing the user. Zero context. Pure chaos.',
     why: 'Leans into meme culture. Brand character is the hero. Awareness play — doesn\'t need conversion hooks.',
-    emoji: '🦉', tags: ['Meme', 'Brand character', 'Awareness'],
+    emoji: '🦉', image: '/ad-library/ad-9.jpg', tags: ['Meme', 'Brand character', 'Awareness'],
   },
   {
     id: 'ad-10', brand: 'Hims', industry: 'Health & Wellness', platform: 'Meta', format: 'Video',
     angle: 'Direct / Product-first', score: 85, estCtr: '3.3%', estRoas: '4.7×',
     hook: '"Hair loss is treatable. We just don\'t talk about it."',
     why: 'Taboo-breaking hook with empathy. No shame framing. Doctor social proof at 8s. Strong DTC structure.',
-    emoji: '💊', tags: ['Taboo-breaking', 'Empathy', 'Doctor proof'],
+    emoji: '💊', image: '/ad-library/ad-10.jpg', tags: ['Taboo-breaking', 'Empathy', 'Doctor proof'],
   },
   {
     id: 'ad-11', brand: 'Figma', industry: 'SaaS', platform: 'LinkedIn', format: 'Video',
     angle: 'Educational', score: 80, estCtr: '0.8%', estRoas: '7.2×',
     hook: '"Your design team ships 3× faster with this one workflow change."',
     why: 'ROI quantified in headline. Speaks to the buyer (PM / team lead), not just the user. Demo shows the feature in 12s.',
-    emoji: '🎨', tags: ['ROI-led', 'B2B', 'Workflow'],
+    emoji: '🎨', image: '/ad-library/ad-11.jpg', tags: ['ROI-led', 'B2B', 'Workflow'],
   },
   {
     id: 'ad-12', brand: 'Calm', industry: 'Health & Wellness', platform: 'YouTube', format: 'Video',
     angle: 'Emotional / Story', score: 89, estCtr: '2.9%', estRoas: '4.3×',
     hook: 'Opens with 3 seconds of silence over a natural scene. No music. No voiceover.',
     why: 'The silence IS the hook — disruptive in a noisy feed. Instantly communicates the product\'s purpose without saying a word.',
-    emoji: '🌊', tags: ['Silence hook', 'Nature', 'Emotional'],
+    emoji: '🌊', image: '/ad-library/ad-12.jpg', tags: ['Silence hook', 'Nature', 'Emotional'],
   },
 ];
 
@@ -131,7 +131,9 @@ function AdDetail({ ad, onClose, saved, onSave }) {
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-3">
-            <div className="text-3xl">{ad.emoji}</div>
+            {ad.image
+              ? <img src={ad.image} alt={`${ad.brand} ad`} className="w-12 h-12 rounded-xl object-cover border border-border-default" />
+              : <div className="text-3xl">{ad.emoji}</div>}
             <div>
               <p className="font-semibold text-ink-primary">{ad.brand}</p>
               <p className="text-xs text-ink-muted">{ad.industry} · {ad.platform}</p>
@@ -218,12 +220,24 @@ function AdCard({ ad, onSelect, saved, onSave }) {
       onClick={() => onSelect(ad)}
     >
       {/* Thumbnail */}
-      <div className="relative h-32 bg-bg-elevated flex items-center justify-center">
-        <span className="text-5xl group-hover:scale-110 transition-transform duration-200">{ad.emoji}</span>
+      <div className="relative h-32 bg-bg-elevated flex items-center justify-center overflow-hidden">
+        {ad.image ? (
+          <>
+            <img
+              src={ad.image}
+              alt={`${ad.brand} ad`}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          </>
+        ) : (
+          <span className="text-5xl group-hover:scale-110 transition-transform duration-200">{ad.emoji}</span>
+        )}
         <div className="absolute top-2.5 right-2.5">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center font-mono text-sm font-bold"
-            style={{ background: `${c}20`, color: c, border: `1px solid ${c}35` }}
+            style={{ background: 'rgba(15,15,19,0.8)', color: c, border: `1px solid ${c}60` }}
           >
             {ad.score}
           </div>
@@ -235,8 +249,8 @@ function AdCard({ ad, onSelect, saved, onSave }) {
           {saved ? <BookmarkCheck size={14} className="text-accent" /> : <Bookmark size={14} className="text-ink-muted" />}
         </button>
         <div className="absolute bottom-2 left-2.5 flex gap-1">
-          <span className="badge badge-muted text-[9px] px-1.5">{ad.format}</span>
-          <span className="badge badge-muted text-[9px] px-1.5">{ad.platform}</span>
+          <span className="badge badge-muted text-[9px] px-1.5" style={{ background: 'rgba(0,0,0,0.7)', color: '#fff', borderColor: 'rgba(255,255,255,0.12)' }}>{ad.format}</span>
+          <span className="badge badge-muted text-[9px] px-1.5" style={{ background: 'rgba(0,0,0,0.7)', color: '#fff', borderColor: 'rgba(255,255,255,0.12)' }}>{ad.platform}</span>
         </div>
       </div>
 

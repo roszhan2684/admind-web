@@ -6,6 +6,17 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, ArrowRight, Mail, RefreshCw, CheckCircle, AlertCircle, ArrowLeft } from 'lucide-react';
 import { createClient } from '../../lib/supabase/client';
+import { DEMO_ENABLED } from '../../lib/demo';
+
+// Supabase-js surfaces network failures as a bare "Failed to fetch".
+function friendlyAuthError(err) {
+  const msg = err?.message || '';
+  if (/failed to fetch|network|load failed|fetch failed/i.test(msg)) {
+    return 'Our sign-in service is unreachable right now. Please try again later' +
+      (DEMO_ENABLED ? ', or explore the demo below.' : '.');
+  }
+  return msg || 'Something went wrong. Please try again.';
+}
 
 /* ------------------------------------------------------------------ */
 /* OTP 6-box input                                                      */
@@ -100,17 +111,22 @@ function LoginPage() {
     setLoading(true);
     setError(null);
 
-    const { error: err } = await supabase.auth.signInWithOtp({
-      email: email.trim().toLowerCase(),
-      options: {
-        shouldCreateUser: true,
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
+    let err = null;
+    try {
+      ({ error: err } = await supabase.auth.signInWithOtp({
+        email: email.trim().toLowerCase(),
+        options: {
+          shouldCreateUser: true,
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
+      }));
+    } catch (e) {
+      err = e;
+    }
 
     setLoading(false);
     if (err) {
-      setError(err.message);
+      setError(friendlyAuthError(err));
     } else {
       setStep('otp');
       setResendCooldown(60);
@@ -246,6 +262,22 @@ function LoginPage() {
                     )}
                   </button>
                 </form>
+
+                {DEMO_ENABLED && (
+                  <>
+                    <div className="flex items-center gap-3 my-5">
+                      <div className="flex-1 h-px bg-border-default" />
+                      <span className="text-xs text-ink-muted uppercase tracking-wider">or</span>
+                      <div className="flex-1 h-px bg-border-default" />
+                    </div>
+                    <a
+                      href={`/auth/demo?redirect=${encodeURIComponent(redirect)}`}
+                      className="btn-secondary btn-lg w-full justify-center"
+                    >
+                      Explore the demo — no sign-up
+                    </a>
+                  </>
+                )}
 
                 <p className="text-center text-xs text-ink-muted mt-6">
                   By continuing you agree to our{' '}

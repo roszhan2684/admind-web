@@ -384,7 +384,7 @@ function ProductVideo() {
             Product Walkthrough
           </span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-primary tracking-tight mb-4">
-            See AdMind in <span className="gradient-text">60 seconds</span>
+            See AdMind in <span className="gradient-text">23 seconds</span>
           </h2>
           <p className="text-lg text-ink-muted max-w-xl mx-auto">
             Watch how AdMind turns raw ad data into clear actions — from creative scoring to competitor intelligence.
@@ -397,6 +397,7 @@ function ProductVideo() {
             <video
               ref={videoRef}
               src="/admind-explainer.mp4"
+              poster="/admind-explainer.jpg"
               className="w-full aspect-video object-cover"
               playsInline
               onEnded={() => setPlaying(false)}
@@ -415,7 +416,7 @@ function ProductVideo() {
                 >
                   <Play size={30} className="text-white ml-1" fill="white" />
                 </motion.button>
-                <p className="text-sm text-ink-muted">1 min 21 sec · AI narration</p>
+                <p className="text-sm text-ink-muted">23 sec · AI narration</p>
               </div>
             )}
 

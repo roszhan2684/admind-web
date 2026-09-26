@@ -25,3 +25,6 @@ playwright-report/
 capture_slides.js
 capture_slides2.js
 capture_v3.js
+
+# Launch video workspace (renders, snapshots, old video backup)
+brag-output/

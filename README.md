@@ -148,7 +148,7 @@ admind-web/
 │       ├── mock-data.test.js
 │       └── supabase-client.test.js
 ├── public/
-│   └── admind-explainer.mp4    # AI-narrated product video
+│   └── admind-explainer.mp4    # 23s narrated launch video (built with /brag + HyperFrames)
 └── middleware.js               # Route protection for all /app routes
 ```
 

@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse } from 'next/server';
+import { isDemoRequest } from './lib/demo';
 
 export async function middleware(request) {
   let supabaseResponse = NextResponse.next({ request });
@@ -23,8 +24,18 @@ export async function middleware(request) {
     },
   );
 
-  // Refresh session — required for SSR auth to work
-  const { data: { user } } = await supabase.auth.getUser();
+  // Refresh session — required for SSR auth to work.
+  // A demo session skips Supabase entirely.
+  let user = null;
+  if (isDemoRequest(request.cookies)) {
+    user = { demo: true };
+  } else {
+    try {
+      ({ data: { user } } = await supabase.auth.getUser());
+    } catch {
+      user = null;
+    }
+  }
 
   const { pathname } = request.nextUrl;
 

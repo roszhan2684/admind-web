@@ -10,6 +10,7 @@ import {
 import { integrations, teamMembers } from '../../../lib/mock-data';
 import TopBar from '../../../components/app/TopBar';
 import { createClient } from '../../../lib/supabase/client';
+import { clearDemoCookie } from '../../../lib/demo';
 
 const TABS = [
   { id: 'profile',       label: 'Profile',       icon: User       },
@@ -374,8 +375,9 @@ function SecuritySection({ user }) {
   const deleteAccount = async () => {
     if (confirmDelete !== user.email) return;
     setDeleting(true);
+    clearDemoCookie();
     const supabase = createClient();
-    await supabase.auth.signOut();
+    await supabase.auth.signOut().catch(() => {});
     // In production: call a server action or API route to delete the user record
     router.push('/');
   };

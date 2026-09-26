@@ -67,7 +67,7 @@ function UploadZone({ onFile }) {
 /* ------------------------------------------------------------------ */
 /* Analysis result panel                                                */
 /* ------------------------------------------------------------------ */
-function AnalysisPanel({ file, result, onClose }) {
+function AnalysisPanel({ file, result, creative, onClose }) {
   const s = result?.score ?? 0;
   const c = scoreColor(s);
   return (
@@ -87,6 +87,17 @@ function AnalysisPanel({ file, result, onClose }) {
             <X size={16} />
           </button>
         </div>
+
+        {/* Creative preview */}
+        {creative?.image && (
+          <div className="mb-5 rounded-xl overflow-hidden border border-border-default">
+            <img src={creative.image} alt={creative.name} className="w-full aspect-[4/3] object-cover" />
+            <div className="px-3 py-2 bg-bg-elevated flex items-center justify-between text-xs">
+              <span className="font-medium text-ink-primary truncate">{creative.name}</span>
+              <span className="text-ink-muted capitalize shrink-0 ml-2">{creative.type} · {creative.format}</span>
+            </div>
+          </div>
+        )}
 
         {/* Score ring */}
         <div className="flex items-center gap-4 mb-5 p-4 surface rounded-xl">
@@ -182,12 +193,30 @@ function CreativeCard({ creative, onSelect }) {
       onClick={() => onSelect(creative)}
     >
       {/* Thumbnail */}
-      <div className="relative h-36 bg-bg-elevated flex items-center justify-center">
-        <span className="text-4xl">{creative.type === 'video' ? '🎬' : '🖼️'}</span>
+      <div className="relative h-36 bg-bg-elevated flex items-center justify-center overflow-hidden">
+        {creative.image ? (
+          <>
+            <img
+              src={creative.image}
+              alt={creative.name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            {creative.type === 'video' && (
+              <div className="relative w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                <Play size={16} className="text-white ml-0.5" fill="white" />
+              </div>
+            )}
+            <span className="absolute bottom-2 right-2 badge badge-muted bg-black/50 text-white border-0">{creative.format}</span>
+          </>
+        ) : (
+          <span className="text-4xl">{creative.type === 'video' ? '🎬' : '🖼️'}</span>
+        )}
         <div className="absolute top-2 right-2">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center font-mono text-sm font-bold"
-            style={{ background: `${c}25`, color: c, border: `1px solid ${c}40` }}
+            style={{ background: 'rgba(15,15,19,0.8)', color: c, border: `1px solid ${c}60` }}
           >
             {creative.score}
           </div>
@@ -400,8 +429,10 @@ export default function CreativeLibraryPage() {
                     <tr key={c.id} className="cursor-pointer" onClick={() => setSelected(c)}>
                       <td>
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-bg-elevated flex items-center justify-center text-lg">
-                            {c.type === 'video' ? '🎬' : '🖼️'}
+                          <div className="w-10 h-10 rounded-lg bg-bg-elevated flex items-center justify-center text-lg overflow-hidden shrink-0">
+                            {c.image
+                              ? <img src={c.image} alt={c.name} loading="lazy" className="w-full h-full object-cover" />
+                              : (c.type === 'video' ? '🎬' : '🖼️')}
                           </div>
                           <div>
                             <p className="text-sm font-medium text-ink-primary">{c.name}</p>
@@ -440,6 +471,7 @@ export default function CreativeLibraryPage() {
         {(selected || result) && (
           <AnalysisPanel
             file={uploadFile}
+            creative={result ? null : selected}
             result={result || { score: selected?.score ?? 75, emotion: 'Neutral' }}
             onClose={() => { setSelected(null); setResult(null); }}
           />

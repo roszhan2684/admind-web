@@ -43,12 +43,12 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <style>{`
-          :root {
-            --font-sora: 'Sora', system-ui, sans-serif;
-            --font-jetbrains: 'JetBrains Mono', Menlo, monospace;
-          }
-        `}</style>
+        <style
+          // Raw CSS: a text child gets its quotes escaped on the server and trips hydration.
+          dangerouslySetInnerHTML={{
+            __html: ":root{--font-sora:'Sora',system-ui,sans-serif;--font-jetbrains:'JetBrains Mono',Menlo,monospace;}",
+          }}
+        />
       </head>
       <body className="antialiased overflow-x-hidden" style={{ background: '#0F0F13', color: '#FAFAFA' }}>
         {children}

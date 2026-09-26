@@ -11,6 +11,7 @@ import {
   Users, LogOut, ChevronDown, FileText, Library, Activity,
 } from 'lucide-react';
 import { createClient } from '../../lib/supabase/client';
+import { clearDemoCookie } from '../../lib/demo';
 
 const NAV = [
   {
@@ -50,8 +51,11 @@ export default function Sidebar({ collapsed, onCollapse, user }) {
   const [userOpen, setUserOpen] = useState(false);
 
   const signOut = async () => {
-    const supabase = createClient();
-    await supabase.auth.signOut();
+    clearDemoCookie();
+    if (!user?.demo) {
+      const supabase = createClient();
+      await supabase.auth.signOut().catch(() => {});
+    }
     router.push('/login');
     router.refresh();
   };

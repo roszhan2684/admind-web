@@ -337,8 +337,10 @@ export default function DashboardPage() {
                 const scoreColor = c.score >= 80 ? '#22C55E' : c.score >= 60 ? '#F5B942' : '#EF5F67';
                 return (
                   <div key={c.id} className="flex items-center gap-3 p-3 rounded-xl bg-bg-elevated border border-border-subtle hover:border-border-strong transition-colors group">
-                    <div className="w-10 h-10 rounded-lg bg-bg-overlay flex items-center justify-center text-lg shrink-0">
-                      {c.type === 'video' ? '🎬' : '🖼️'}
+                    <div className="w-10 h-10 rounded-lg bg-bg-overlay flex items-center justify-center text-lg shrink-0 overflow-hidden">
+                      {c.image
+                        ? <img src={c.image} alt={c.name} loading="lazy" className="w-full h-full object-cover" />
+                        : (c.type === 'video' ? '🎬' : '🖼️')}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-ink-primary truncate">{c.name}</p>
