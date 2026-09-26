@@ -281,7 +281,12 @@ export default function CreativeLibraryPage() {
           setProgress(e.total ? Math.round((e.loaded * 100) / e.total) : 0);
         },
       });
-      setResult(res.data);
+      // ML engine returns creative_score / dominant_emotion; the UI uses score / emotion
+      setResult({
+        ...res.data,
+        score: res.data.creative_score ?? res.data.score ?? 0,
+        emotion: res.data.dominant_emotion ?? res.data.emotion,
+      });
     } catch (err) {
       setError(err.response?.data?.error || 'Analysis failed. Check backend connection.');
     } finally {
